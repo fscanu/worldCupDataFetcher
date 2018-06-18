@@ -13,4 +13,8 @@
           destroy-method="quit">
     </bean>
 
+    <bean id="driverHandler" class="it.fescacom.service.dataFetch.driver.DriverHandler"/>
+
+    <context:property-placeholder location="classpath:fetcher.properties"/>
+
 </beans>
