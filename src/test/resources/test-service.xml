@@ -9,11 +9,24 @@
 
     <context:component-scan base-package="it.fescacom.service"/>
 
-    <bean id="driver" class="org.openqa.selenium.firefox.FirefoxDriver"
-          destroy-method="quit">
+    <bean id="driver" class="org.openqa.selenium.ie.InternetExplorerDriver" destroy-method="quit">
     </bean>
 
-    <bean id="driverHandler" class="it.fescacom.service.dataFetch.driver.DriverHandler"/>
+    <!--<bean id="driver" class="org.openqa.selenium.firefox.FirefoxDriver" destroy-method="quit">-->
+        <!--<constructor-arg name="options" ref="firefoxOptions"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="firefoxOptions" class="org.openqa.selenium.firefox.FirefoxOptions">-->
+        <!--<property name="binary" ref="firefoxBinary"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="firefoxBinary" class="org.openqa.selenium.firefox.FirefoxBinary">-->
+        <!--<constructor-arg name="pathToFirefoxBinary" ref="firefoxFile"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="firefoxFile" class="java.io.File">-->
+        <!--<constructor-arg name="pathname" value="C:\\Program Files\\Firefox Developer Edition\\firefox.exe"/>-->
+    <!--</bean>-->
 
     <context:property-placeholder location="classpath:fetcher.properties"/>
 

@@ -1,9 +1,6 @@
 package it.fescacom;
 
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -11,11 +8,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration("classpath:test-service.xml")
 public class ServiceTestAbstract {
 
-    @Value("browser.driver.location")
-    private String browserDriverLocation;
-
-    @BeforeClass
-    public static void before() {
+    static {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\scanufe\\Downloads\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\scanufe\\Downloads\\chromedriver.exe");
+        System.setProperty("webdriver.ie.driver", "C:\\Users\\scanufe\\Downloads\\IEDriverServer.exe");
+
+
     }
 }

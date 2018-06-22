@@ -2,6 +2,7 @@ package it.fescacom.service.dataFetch.skysports;
 
 import it.fescacom.domain.Match;
 import it.fescacom.service.dataFetch.ServiceMatches;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ import static it.fescacom.service.dataFetch.skysports.SkySportsServiceConstants.
 
 @Service
 public class SkySportsWorldCupResultFetcher extends ServiceMatches {
+    static Logger logger = Logger.getLogger(SkySportsWorldCupResultFetcher.class);
 
     @Autowired
     private final WebDriver driver;
@@ -25,9 +27,12 @@ public class SkySportsWorldCupResultFetcher extends ServiceMatches {
     }
 
     public List<Match> fetchMatchData() {
+        logger.info("STARTING: fetchMatchData");
+
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to(SKYSPORT_RESULT_URL);
         List<WebElement> fixres__item = driver.findElements(By.className("fixres__item"));
+        logger.info("  ENDING: fetchMatchData");
         return getMatches(fixres__item);
     }
 
